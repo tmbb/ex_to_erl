@@ -7,7 +7,8 @@ defmodule ExToErl.MixProject do
       version: "0.1.0",
       elixir: "~> 1.7",
       start_permanent: Mix.env() == :prod,
-      deps: deps()
+      deps: deps(),
+      package: package()
     ]
   end
 
@@ -15,6 +16,16 @@ defmodule ExToErl.MixProject do
   def application do
     [
       extra_applications: [:logger]
+    ]
+  end
+
+  defp package() do
+    [
+      # This option is only needed when you don't want to use the OTP application name
+      name: "ex_to_erl",
+      licenses: ["MIT"],
+      links: %{"GitHub" => "https://github.com/tmbb/ex_to_erl"},
+      description: "Convert Elixir expressions into Erlang"
     ]
   end
 
